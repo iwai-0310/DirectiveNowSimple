@@ -21,7 +21,8 @@ export default function CardFlip({
 
   return (
     <div
-      className="group relative h-[320px] w-full max-w-[280px] [perspective:2000px]"
+      //className="group relative h-[320px] w-full max-w-[280px] [perspective:2000px]"
+      className="group relative h-[360px] md:h-[420px] w-full max-w-[280px] [perspective:2000px] mb-4"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
     >
@@ -119,10 +120,10 @@ export default function CardFlip({
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 ">
               {features.map((feature, index) => (
                 <div
-                  className="flex items-center gap-2 text-sm text-zinc-700 transition-all duration-500 dark:text-zinc-300"
+                  className=" flex items-center gap-2 text-sm text-zinc-700 transition-all duration-500 dark:text-zinc-300"
                   key={feature}
                   style={{
                     transform: isFlipped
@@ -139,7 +140,7 @@ export default function CardFlip({
             </div>
           </div>
 
-          <div className="mt-6 border-zinc-200 border-t pt-6 dark:border-zinc-800">
+          {/* <div className="mt-6 border-zinc-200 border-t pt-6 dark:border-zinc-800">
             <div
               className={cn(
                 "group/start relative",
@@ -165,9 +166,9 @@ export default function CardFlip({
                   )}
                 />
                 <ArrowRight className="relative z-10 h-4 w-4 text-orange-500 transition-all duration-300 group-hover/start:translate-x-0.5 group-hover/start:scale-110" />
-              </div> */}
+              </div> 
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
