@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CardFlip from "@/components/card-flip";
+import HeaderForSA from "@/components/HeaderForSA";
 
 export default function AboutUsPage() {
   return (

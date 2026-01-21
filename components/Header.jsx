@@ -1,49 +1,54 @@
-import { Button } from "./ui/button";
-import { Popover, PopoverButton } from "@headlessui/react";
+"use client";
+
 import Link from "next/link";
+import { Button } from "./ui/button";
+import { SlideTabsExample } from "@/components/SlideTabMain";
+import HeaderDropDown from "@/components/HeaderDropdown";
+
 export default function Header() {
   return (
-    //space indigo #22223B
-    //Parchment #F2E9E4
-    <header className="bg-gradient-to-b from-[#22223B] to-[#030617]"
-      style={{
-        padding: "1rem",
-        backgroundColor: "#22223B",
-        color: "#F2E9E4",
-        position: "fixed",
-        left:0 ,top: 0,
-        width: "100vw",
-        display: "flex",
-        justifyContent:"space-between",
-        alignItems: "center",
-        zIndex: 1000, 
-        }}>
-        {/* Logo div aligned left */}
-        <Link href="/" className="inline-block">
-        <div style={{ fontWeight: "bold", fontSize: "1.5rem" }}>
+    <header className="fixed left-0 top-0 z-[1000] w-full bg-gradient-to-b from-[#22223B] to-[#030617] text-[#F2E9E4]">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
+        {/* Logo */}
+        <Link href="/" className="inline-block text-xl font-bold">
           DirectiveNow
-        </div>
         </Link>
-        {/* Buttons container aligned right */}
-        <Popover>
-        <div className={{ right:0, display: "flex", gap: "2", position: "right", justifyContent: "center", width: "100%" }}>
-          <Link href="/services" className="inline-block">
-          <Button  variant="ghost" size="sm">Services</Button>
-          </Link>
-          <Link href="/aboutUs" className="inline-block">
-          <Button variant="ghost" size="sm">About Us</Button>
-          </Link>
-          <Button variant="ghost" size="sm">Industries</Button>
-          <Button variant="ghost" size="sm">Connect us</Button>
-          <Button variant="secondary" size="sm">Get a Free Audit</Button>
+
+        {/* RIGHT SIDE NAVS */}
+
+        {/* Small screens: dropdown (default) */}
+        <div className="flex items-center md:hidden">
+          <HeaderDropDown />
         </div>
-        {/* Popover Panel for mobile menu can be added here if needed */}
-        {/* <div className="flex grow items-center justify-end ">
-          <PopoverButton size="sm">
-            Menu
-          </PopoverButton>
-        </div> */}
-        </Popover>
+
+        {/* Medium screens: SlideTabs */}
+        <div className="hidden md:flex lg:hidden items-center">
+          <SlideTabsExample />
+        </div>
+
+        {/* Large screens: button row */}
+        <div className="hidden lg:flex items-center gap-2">
+          <Link href="/services">
+            <Button variant="ghost" size="sm">Services</Button>
+          </Link>
+
+          <Link href="/aboutUs">
+            <Button variant="ghost" size="sm">About Us</Button>
+          </Link>
+
+          <Link href="/industries">
+            <Button variant="ghost" size="sm">Industries</Button>
+          </Link>
+
+          <Link href="/contact">
+            <Button variant="ghost" size="sm">Connect us</Button>
+          </Link>
+
+          <Link href="/audit">
+            <Button variant="secondary" size="sm">Get a Free Audit</Button>
+          </Link>
+        </div>
+      </div>
     </header>
   );
 }
